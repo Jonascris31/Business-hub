@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: business-hub-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: business_hub
+      POSTGRES_USER: business_hub
+      POSTGRES_PASSWORD: business_hub_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - business_hub_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  business_hub_postgres_data:
